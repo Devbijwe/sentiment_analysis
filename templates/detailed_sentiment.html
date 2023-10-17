@@ -1,0 +1,143 @@
+{% extends "base.html" %} {% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+
+
+    <h1 class="h3 mb-0 text-gray-800">X Analog Wrist Watch</h1>
+    <br>
+    <p class="mb-4">Here you can find the detailed sentiment analysis with top five positive and negative reviews displayed for convenience</p>
+    <!-- Content Row -->
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-7">
+            <div class="card shadow mb-5">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Sentiment Analysis</h6>
+                    <div class="dropdown no-arrow">
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuLink" role="button">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-500"></i>
+                        </a>
+                        <div aria-labelledby="dropdownMenuLink" class="dropdown-menu dropdown-menu-right shadow animated--fade-in">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Download</a>
+                            <a class="dropdown-item" href="#">Look in detail</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">go into detailed reviews</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Positive:82%
+                    </span>
+                        <span class="mr-2">
+                      <i class="fas fa-circle text-warning"></i> Negative:18%
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <br>
+
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Top Positive Reviews</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table cellspacing="0" class="table table-bordered" id="dataTable" width="100%">
+
+                            <tbody>
+                                {% for key in data[0:5] %}
+                                <tr>
+                                    <td>{{key["Review_Text"]}}</td>
+                                </tr>
+                                {% endfor %}
+                                <!-- <tr>
+                                    <td>One of the best looking watch.....very good product from X...Super product.X is X that's all
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Amazing watch the design of watch look like Rolex designs and by wearing this one look classy it can be wear causaly and with outfit.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Writing this review after couple of years , it still looks great , still at excellent condition
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <font color="red"> Top Negative Reviews</font>
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table cellspacing="0" class="table table-bordered" id="dataTable" width="100%">
+
+                                    <tbody>
+                                        {% for key in data[-5:] %}
+                                        <tr>
+                                            <td>{{key["Review_Text"]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- <tr>
+                                            <td>X centre is refusing to give service.as it dosn't have UID and manufacture date.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Really Class model but when i going to hill station in centre of the glass have some moister. | Fix the issue or stop the model. | We spend almost 6k for this watch. | #Replacemymatch
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>In less than a year of purchase there is fogging and needs repairs. Not sure if the product itself is genuine. Poor quality. Very bad.. they delivered non working watch!...
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>I didn't expected this from Amazon.I bought this to gift and it was defective. Atleast, amazon need to do a quality check. Terrible experience..
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Content Row -->
+
+        </div>
+        <div id="mydiv" data-diff_rev='{{ diff_rev|tojson }}'></div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+    <script type="text/javascript">
+    </script>
+    {% endblock %}

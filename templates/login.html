@@ -1,0 +1,41 @@
+{% extends "auth_base.html"%}
+
+{% block title %}
+<title>SB Admin 2 - Login</title>
+{% endblock %}
+{% block content %}
+<form action="" class="user" method="post">
+    <div class="form-group">
+        <input aria-describedby="emailHelp" class="form-control form-control-user" id="exampleInputEmail"
+               name="email" placeholder="Enter Email Address..."
+               type="email">
+    </div>
+    <div class="form-group">
+        <input class="form-control form-control-user" id="exampleInputPassword" name="password"
+               placeholder="Password" type="password">
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox small">
+            <input class="custom-control-input" id="customCheck" type="checkbox">
+            <label class="custom-control-label" for="customCheck">Remember Me</label>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-user btn-block" type="submit">
+        Login
+    </button>
+    <hr>
+    <a class="btn btn-google btn-user btn-block" href="{{url_for('index')}}">
+        <i class="fab fa-google fa-fw"></i> Login with Google
+    </a>
+    <a class="btn btn-facebook btn-user btn-block" href="{{url_for('index')}}">
+        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+    </a>
+</form>
+<hr>
+<div class="text-center">
+    <a class="small" href="../other_pages/forgot-password.html">Forgot Password?</a>
+</div>
+<div class="text-center">
+    <a class="small" href="{{url_for('register')}}">Create an Account!</a>
+</div>
+{% endblock %}
